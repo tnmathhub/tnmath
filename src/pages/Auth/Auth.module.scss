@@ -1,0 +1,203 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 480px) 1fr;
+
+  @include respond(lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  padding: $space-8 $space-7;
+  display: flex;
+  flex-direction: column;
+  max-width: 420px;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+
+  h1 {
+    font-size: 1.6rem;
+    margin-top: $space-6;
+  }
+}
+
+.subtitle {
+  color: $color-ink-500;
+  margin-top: $space-2;
+  margin-bottom: $space-6;
+  font-size: 0.9rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  font-family: $font-display;
+  font-weight: 700;
+}
+
+.brandMark {
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-sm;
+  background: $color-primary;
+  color: $color-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: $space-6;
+  padding: $space-9;
+  background: linear-gradient(150deg, $color-primary-darker, $color-primary);
+  color: $color-white;
+
+  @include respond(lg) { display: none; }
+
+  blockquote {
+    font-family: $font-display;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    max-width: 460px;
+    font-weight: 500;
+  }
+}
+
+.sideStats {
+  display: flex;
+  gap: $space-7;
+
+  div { display: flex; flex-direction: column; }
+  strong { font-family: $font-mono; font-size: 1.6rem; }
+  span { font-size: 0.75rem; opacity: 0.8; }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+  margin-top: $space-5;
+}
+
+.fieldsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-4;
+
+  @include respond(sm) { grid-template-columns: 1fr; }
+}
+
+.rowBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8125rem;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  color: $color-ink-700;
+}
+
+.link {
+  color: $color-primary;
+  font-weight: 600;
+
+  &:hover { text-decoration: underline; }
+}
+
+.switchText {
+  margin-top: $space-6;
+  text-align: center;
+  font-size: 0.875rem;
+  color: $color-ink-500;
+}
+
+.successBox {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-3;
+  padding: $space-5;
+  background: $color-success-tint;
+  border-radius: $radius-md;
+  margin-bottom: $space-2;
+
+  p { font-size: 0.875rem; color: $color-ink-700; line-height: 1.5; }
+  strong { color: $color-ink-900; }
+}
+
+.successIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: $color-success;
+  color: $color-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hintBox {
+  font-size: 0.8125rem;
+  color: $color-ink-500;
+  background: $color-surface-alt;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  padding: $space-3 $space-4;
+  line-height: 1.5;
+}
+
+.linkButton {
+  background: none;
+  border: none;
+  padding: 0;
+  color: $color-primary;
+  font-weight: 600;
+  font-size: inherit;
+  cursor: pointer;
+
+  &:hover { text-decoration: underline; }
+}
+
+.roleGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-3;
+  margin-bottom: $space-2;
+
+  @include respond(sm) { grid-template-columns: 1fr; }
+}
+
+.roleCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $space-2;
+  padding: $space-4;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-surface;
+  color: $color-ink-700;
+  text-align: left;
+  transition: border-color $dur-base $ease-smooth, background-color $dur-base $ease-smooth, transform $dur-fast $ease-smooth;
+
+  &:hover { border-color: $color-primary-light; }
+}
+
+.roleCardActive {
+  border-color: $color-primary;
+  background: $color-primary-tint;
+  color: $color-primary-darker;
+}
+
+.roleTitle { font-weight: 700; font-size: 0.875rem; }
+.roleDesc { font-size: 0.75rem; color: $color-ink-500; line-height: 1.4; }

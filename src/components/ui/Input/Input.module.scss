@@ -1,0 +1,47 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  width: 100%;
+}
+
+.label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $color-ink-700;
+}
+
+.input {
+  width: 100%;
+  padding: 0.7rem $space-4;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-surface;
+  color: $color-ink-900;
+  transition: border-color $dur-base $ease-smooth, box-shadow $dur-base $ease-smooth;
+
+  &::placeholder { color: $color-ink-300; }
+
+  &:hover { border-color: $color-border-strong; }
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 4px $color-primary-tint;
+  }
+}
+
+.inputError {
+  border-color: $color-error;
+  &:focus { box-shadow: 0 0 0 4px $color-error-tint; }
+}
+
+.error {
+  font-size: 0.75rem;
+  color: $color-error;
+}
+
+.hint {
+  font-size: 0.75rem;
+  color: $color-ink-500;
+}

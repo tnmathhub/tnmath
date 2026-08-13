@@ -1,0 +1,63 @@
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-5;
+  margin-bottom: $space-6;
+
+  @include respond(lg) { grid-template-columns: repeat(2, 1fr); }
+  @include respond(sm) { grid-template-columns: 1fr; }
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $space-5;
+
+  h3 { font-size: 1rem; }
+}
+
+.viewAll {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $color-primary;
+  &:hover { text-decoration: underline; }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  padding: $space-3 $space-4;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  flex-wrap: wrap;
+}
+
+.icon {
+  width: 34px;
+  height: 34px;
+  border-radius: $radius-md;
+  background: $color-primary-tint;
+  color: $color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.exam { font-size: 0.8125rem; font-weight: 600; @include truncate(1); }
+.meta { font-size: 0.75rem; color: $color-ink-500; }

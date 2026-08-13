@@ -1,0 +1,112 @@
+.tabsWrap {
+  margin-bottom: $space-5;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.lockedWrap {
+  margin-top: $space-4;
+}
+
+// ---- MCQ ----
+.mcqCard {
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: $space-5;
+}
+
+.qText {
+  font-size: 0.9375rem;
+  color: $color-ink-900;
+  line-height: 1.6;
+  margin-bottom: $space-4;
+}
+
+.mcqOptions {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.mcqOption {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-3 $space-4;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-surface;
+  text-align: left;
+  font-size: 0.875rem;
+  color: $color-ink-700;
+  transition: border-color $dur-base $ease-smooth, background-color $dur-base $ease-smooth;
+
+  &:hover:not(:disabled) { border-color: $color-primary-light; }
+  &:disabled { cursor: default; }
+}
+
+.mcqLetter {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: $color-ink-50;
+  color: $color-ink-700;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mcqCorrect {
+  border-color: $color-success;
+  background: $color-success-tint;
+  color: $color-success;
+  font-weight: 600;
+
+  svg { margin-left: auto; }
+}
+
+.mcqWrong {
+  border-color: $color-error;
+  background: $color-error-tint;
+  color: $color-error;
+}
+
+.feedbackCorrect {
+  display: inline-block;
+  margin-top: $space-3;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $color-success;
+}
+
+.feedbackWrong {
+  display: inline-block;
+  margin-top: $space-3;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $color-error;
+}
+
+// ---- Descriptive ----
+.descCard {
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: $space-5;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  align-items: flex-start;
+}
+
+.descHeader {
+  display: flex;
+}

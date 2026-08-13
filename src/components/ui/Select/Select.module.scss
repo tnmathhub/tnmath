@@ -1,0 +1,42 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $color-ink-700;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.select {
+  width: 100%;
+  appearance: none;
+  padding: 0.7rem $space-6 0.7rem $space-4;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-surface;
+  color: $color-ink-900;
+  transition: border-color $dur-base $ease-smooth, box-shadow $dur-base $ease-smooth;
+
+  &:hover { border-color: $color-border-strong; }
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 4px $color-primary-tint;
+  }
+}
+
+.chevron {
+  position: absolute;
+  right: $space-3;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  color: $color-ink-500;
+  pointer-events: none;
+}

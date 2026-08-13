@@ -1,0 +1,25 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: $space-9 $space-5;
+  gap: $space-3;
+  color: $color-ink-500;
+
+  h4 { color: $color-ink-900; font-size: 1rem; }
+  p { max-width: 320px; font-size: 0.875rem; }
+}
+
+.iconWrap {
+  width: 56px;
+  height: 56px;
+  border-radius: $radius-pill;
+  background: $color-primary-tint;
+  color: $color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action { margin-top: $space-2; }

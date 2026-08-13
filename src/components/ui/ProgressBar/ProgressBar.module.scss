@@ -1,0 +1,32 @@
+.wrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+}
+
+.label { color: $color-ink-500; }
+.percent { color: $color-primary-darker; font-weight: 700; }
+
+.track {
+  width: 100%;
+  background: $color-ink-50;
+  border-radius: $radius-pill;
+  overflow: hidden;
+}
+
+.sm { height: 6px; }
+.md { height: 9px; }
+
+.fill {
+  height: 100%;
+  border-radius: $radius-pill;
+  background: linear-gradient(90deg, $color-primary-light, $color-primary);
+  transition: width $dur-slow $ease-smooth;
+}

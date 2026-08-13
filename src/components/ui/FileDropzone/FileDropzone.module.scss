@@ -1,0 +1,107 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $color-ink-700;
+}
+
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+  text-align: center;
+  padding: $space-6 $space-5;
+  border: 2px dashed $color-border-strong;
+  border-radius: $radius-lg;
+  color: $color-ink-500;
+  background: $color-surface-alt;
+  transition: border-color $dur-base $ease-smooth, background-color $dur-base $ease-smooth;
+
+  p { font-size: 0.8125rem; color: $color-ink-700; }
+}
+
+.dragging {
+  border-color: $color-primary;
+  background: $color-primary-tint;
+}
+
+.browse {
+  color: $color-primary;
+  font-weight: 600;
+  cursor: pointer;
+  &:hover { text-decoration: underline; }
+}
+
+.hint {
+  font-size: 0.75rem;
+  color: $color-ink-300;
+}
+
+.fileList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.fileRow {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-2 $space-3;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-white;
+}
+
+.fileIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: $radius-sm;
+  background: $color-primary-tint;
+  color: $color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.fileInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.fileName {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  @include truncate(1);
+}
+
+.fileSize {
+  font-size: 0.6875rem;
+  color: $color-ink-500;
+}
+
+.tagSelect {
+  width: 130px;
+  flex-shrink: 0;
+}
+
+.removeBtn {
+  background: none;
+  border: none;
+  color: $color-ink-300;
+  padding: $space-1;
+  border-radius: $radius-sm;
+  flex-shrink: 0;
+  transition: background-color $dur-fast $ease-smooth, color $dur-fast $ease-smooth;
+
+  &:hover { background: $color-error-tint; color: $color-error; }
+}

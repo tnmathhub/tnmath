@@ -1,0 +1,157 @@
+.header {
+  height: $header-height;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 $space-6;
+  background: $color-white;
+  border-bottom: 1px solid $color-border;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+
+  @include respond(md) {
+    padding: 0 $space-4;
+  }
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+}
+
+.menuBtn {
+  display: none;
+  background: none;
+  border: none;
+  color: $color-ink-700;
+  padding: $space-2;
+  border-radius: $radius-sm;
+
+  &:hover { background: $color-ink-50; }
+
+  @include respond(lg) {
+    display: inline-flex;
+  }
+}
+
+.brand {
+  @include flex(flex-start, center, $space-2);
+}
+
+.brandMark {
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-sm;
+  background: $color-primary;
+  color: $color-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brandName {
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: $color-ink-900;
+  letter-spacing: -0.01em;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}
+
+.langToggle {
+  display: flex;
+  align-items: center;
+  gap: $space-1;
+  background: $color-ink-50;
+  border: none;
+  padding: $space-2 $space-3;
+  border-radius: $radius-pill;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: $color-ink-500;
+  transition: background-color $dur-base $ease-smooth;
+
+  &:hover { background: $color-primary-tint; }
+}
+
+.langDivider {
+  color: $color-ink-300;
+}
+
+.langActive {
+  color: $color-primary-darker;
+}
+
+.iconBtn {
+  position: relative;
+  background: none;
+  border: none;
+  color: $color-ink-700;
+  padding: $space-2;
+  border-radius: $radius-sm;
+  display: inline-flex;
+  transition: background-color $dur-base $ease-smooth, color $dur-base $ease-smooth;
+
+  &:hover { background: $color-ink-50; color: $color-primary-darker; }
+}
+
+.dot {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: $color-primary;
+  border: 1.5px solid $color-white;
+}
+
+.divider {
+  width: 1px;
+  height: 26px;
+  background: $color-border;
+
+  @include respond(sm) { display: none; }
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-1 $space-2;
+  border-radius: $radius-md;
+  transition: background-color $dur-base $ease-smooth;
+
+  &:hover { background: $color-ink-50; }
+
+  @include respond(sm) { display: none; }
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: $color-primary-tint;
+  color: $color-primary-darker;
+  font-weight: 700;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.name { font-size: 0.8125rem; font-weight: 600; color: $color-ink-900; }
+.role { font-size: 0.6875rem; color: $color-ink-500; }

@@ -1,0 +1,12 @@
+.card {
+  @include card;
+}
+
+.hoverable {
+  @include card-hover;
+  cursor: pointer;
+}
+
+.sm { padding: $space-4; }
+.md { padding: $space-5; }
+.lg { padding: $space-6; }

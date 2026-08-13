@@ -1,0 +1,98 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-5;
+  margin-bottom: $space-6;
+
+  @include respond(sm) { grid-template-columns: 1fr; }
+}
+
+.planCard {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.highlighted {
+  border-color: $color-primary;
+  box-shadow: $shadow-md;
+}
+
+.planHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-3;
+
+  h3 { font-size: 1.05rem; }
+}
+
+.price {
+  font-family: $font-display;
+  font-size: 1.6rem;
+  font-weight: 700;
+
+  span { font-size: 0.8rem; color: $color-ink-500; font-weight: 500; }
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  flex: 1;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    font-size: 0.8125rem;
+    color: $color-ink-700;
+    svg { color: $color-success; flex-shrink: 0; }
+  }
+}
+
+.billingCard {
+  h3 { font-size: 1rem; }
+}
+
+.billingHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $space-4;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+
+  p { font-size: 0.9rem; color: $color-ink-700; }
+}
+
+.modalFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    font-size: 0.8125rem;
+    color: $color-ink-700;
+    svg { color: $color-success; flex-shrink: 0; }
+  }
+}
+
+.billingRow {
+  display: flex;
+  justify-content: space-between;
+  padding: $space-3 0;
+  border-bottom: 1px solid $color-ink-50;
+  font-size: 0.875rem;
+  color: $color-ink-500;
+
+  &:last-child { border-bottom: none; }
+  strong { color: $color-ink-900; }
+}

@@ -1,0 +1,28 @@
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-5;
+  margin-bottom: $space-6;
+
+  @include respond(lg) { grid-template-columns: repeat(2, 1fr); }
+  @include respond(sm) { grid-template-columns: 1fr; }
+}
+
+.title { font-size: 1rem; margin-bottom: $space-5; }
+
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: $space-4;
+  align-items: center;
+
+  @include respond(sm) { grid-template-columns: 1fr; gap: $space-2; }
+}
+
+.label { font-size: 0.8125rem; color: $color-ink-700; }

@@ -1,0 +1,80 @@
+.progressCard {
+  margin-bottom: $space-6;
+}
+
+.progressRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $space-6;
+  flex-wrap: wrap;
+}
+
+.progressLabel {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $color-ink-700;
+}
+
+.progressMeta {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-top: $space-2;
+  font-size: 0.75rem;
+  color: $color-ink-500;
+}
+
+.progressBarWrap {
+  width: 220px;
+
+  @include respond(sm) { width: 100%; }
+}
+
+.tabsWrap {
+  margin-bottom: $space-5;
+}
+
+.topicList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.topicRow {
+  display: flex;
+  align-items: center;
+  gap: $space-4;
+  padding: $space-4;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  transition: border-color $dur-base $ease-smooth;
+
+  &:hover { border-color: $color-primary-light; }
+}
+
+.topicCheck {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: $color-ink-50;
+  color: $color-ink-500;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.topicDone {
+  background: $color-success-tint;
+  color: $color-success;
+}
+
+.topicTitle {
+  flex: 1;
+  font-size: 0.875rem;
+  font-weight: 500;
+}

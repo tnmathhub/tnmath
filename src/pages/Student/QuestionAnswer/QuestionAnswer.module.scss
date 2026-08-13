@@ -1,0 +1,141 @@
+.questionCard {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  align-items: flex-start;
+  margin-bottom: $space-5;
+}
+
+.qText {
+  font-size: 1rem;
+  color: $color-ink-900;
+  line-height: 1.6;
+}
+
+.formCard {
+  display: flex;
+  flex-direction: column;
+  gap: $space-6;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $color-ink-700;
+}
+
+.textarea {
+  width: 100%;
+  padding: $space-3 $space-4;
+  border: 1.5px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-surface;
+  color: $color-ink-900;
+  font-family: $font-body;
+  font-size: 0.875rem;
+  resize: vertical;
+  transition: border-color $dur-base $ease-smooth, box-shadow $dur-base $ease-smooth;
+
+  &::placeholder { color: $color-ink-300; }
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 4px $color-primary-tint;
+  }
+}
+
+.stepsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stepsList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.stepRow {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-3;
+}
+
+.stepNumber {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: $color-primary-tint;
+  color: $color-primary-darker;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: $space-2;
+}
+
+.stepEditor {
+  flex: 1;
+  min-width: 0;
+}
+
+.stepRemove {
+  background: none;
+  border: none;
+  color: $color-ink-500;
+  padding: $space-1;
+  border-radius: $radius-sm;
+  margin-top: $space-2;
+  flex-shrink: 0;
+  transition: background-color $dur-fast $ease-smooth, color $dur-fast $ease-smooth;
+
+  &:hover { background: $color-error-tint; color: $color-error; }
+}
+
+.formFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: $space-3;
+  padding-top: $space-2;
+  border-top: 1px solid $color-ink-50;
+}
+
+// Success state
+.successWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: $space-3;
+  padding: $space-9 $space-5;
+
+  h2 { font-size: 1.25rem; }
+  p { max-width: 420px; color: $color-ink-500; font-size: 0.9rem; }
+}
+
+.successIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: $color-success-tint;
+  color: $color-success;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.successActions {
+  display: flex;
+  gap: $space-3;
+  margin-top: $space-2;
+}

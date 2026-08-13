@@ -1,0 +1,95 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  width: 100%;
+}
+
+.label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $color-ink-700;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-1;
+  padding: $space-2;
+  background: $color-surface-alt;
+  border: 1px solid $color-border;
+  border-bottom: none;
+  border-radius: $radius-md $radius-md 0 0;
+}
+
+.snippetBtn {
+  min-width: 30px;
+  height: 30px;
+  padding: 0 $space-2;
+  border-radius: $radius-sm;
+  border: 1px solid transparent;
+  background: $color-white;
+  color: $color-primary-darker;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  transition: border-color $dur-fast $ease-smooth, background-color $dur-fast $ease-smooth;
+
+  &:hover { border-color: $color-primary-light; background: $color-primary-tint; }
+}
+
+.textarea {
+  width: 100%;
+  padding: $space-3 $space-4;
+  border: 1.5px solid $color-border;
+  border-radius: 0;
+  font-family: $font-mono;
+  font-size: 0.875rem;
+  color: $color-ink-900;
+  resize: vertical;
+  transition: border-color $dur-base $ease-smooth, box-shadow $dur-base $ease-smooth;
+
+  &::placeholder { color: $color-ink-300; font-family: $font-body; }
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 4px $color-primary-tint;
+  }
+}
+
+.previewRow {
+  border: 1.5px solid $color-border;
+  border-top: none;
+  border-radius: 0 0 $radius-md $radius-md;
+  overflow: hidden;
+}
+
+.previewLabel {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-2 $space-4;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: $color-ink-500;
+  background: $color-surface-alt;
+}
+
+.previewBox {
+  padding: $space-4;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  font-size: 1.05rem;
+  color: $color-ink-900;
+  background: $color-white;
+  overflow-x: auto;
+}
+
+.previewPlaceholder {
+  font-size: 0.8125rem;
+  color: $color-ink-300;
+  font-family: $font-body;
+}

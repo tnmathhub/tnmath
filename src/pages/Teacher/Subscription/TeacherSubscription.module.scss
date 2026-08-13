@@ -1,0 +1,77 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-5;
+  align-items: start;
+
+  @include respond(lg) { grid-template-columns: 1fr; }
+}
+
+.planCard {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.planHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h3 { font-size: 1.05rem; }
+}
+
+.price {
+  font-family: $font-display;
+  font-size: 1.6rem;
+  font-weight: 700;
+  span { font-size: 0.8rem; color: $color-ink-500; font-weight: 500; }
+}
+
+.renewalNote {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  font-size: 0.8125rem;
+  color: $color-ink-500;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  flex: 1;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    font-size: 0.8125rem;
+    color: $color-ink-700;
+    svg { color: $color-success; }
+  }
+}
+
+.title { font-size: 1rem; margin-bottom: $space-4; }
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: $space-3 0;
+  border-bottom: 1px solid $color-ink-50;
+  font-size: 0.875rem;
+  color: $color-ink-500;
+
+  &:last-of-type { border-bottom: none; }
+  strong { color: $color-ink-900; }
+}
+
+.note {
+  margin-top: $space-4;
+  padding: $space-3 $space-4;
+  background: $color-surface-alt;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  font-size: 0.8125rem;
+  color: $color-ink-500;
+  line-height: 1.5;
+}

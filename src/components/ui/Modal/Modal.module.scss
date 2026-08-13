@@ -1,0 +1,61 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(35, 19, 28, 0.45);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $space-5;
+  z-index: 1000;
+  animation: fadeIn $dur-base $ease-smooth both;
+}
+
+.modal {
+  width: 100%;
+  max-width: 480px;
+  max-height: 88vh;
+  overflow-y: auto;
+  background: $color-white;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-lg;
+  animation: pop $dur-base $ease-smooth both;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-5 $space-6;
+  border-bottom: 1px solid $color-border;
+
+  h3 { font-size: 1.05rem; }
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: $color-ink-500;
+  display: flex;
+  padding: $space-1;
+  border-radius: $radius-sm;
+  transition: background-color $dur-fast $ease-smooth, color $dur-fast $ease-smooth;
+
+  &:hover { background: $color-ink-50; color: $color-ink-900; }
+}
+
+.body { padding: $space-6; }
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: $space-3;
+  padding: $space-5 $space-6;
+  border-top: 1px solid $color-border;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pop {
+  from { opacity: 0; transform: scale(0.96) translateY(6px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}

@@ -1,0 +1,26 @@
+.tabs {
+  display: inline-flex;
+  gap: $space-1;
+  padding: $space-1;
+  background: $color-ink-50;
+  border-radius: $radius-md;
+}
+
+.tab {
+  padding: $space-2 $space-4;
+  border: none;
+  background: transparent;
+  border-radius: $radius-sm;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $color-ink-500;
+  transition: background-color $dur-base $ease-smooth, color $dur-base $ease-smooth, box-shadow $dur-base $ease-smooth;
+
+  &:hover { color: $color-ink-900; }
+}
+
+.active {
+  background: $color-white;
+  color: $color-primary-darker;
+  box-shadow: $shadow-sm;
+}

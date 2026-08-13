@@ -1,0 +1,24 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  padding: 0.3rem 0.7rem;
+  border-radius: $radius-pill;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.success { background: $color-success-tint; color: $color-success; }
+.warning { background: $color-warning-tint; color: $color-warning; }
+.error   { background: $color-error-tint; color: $color-error; }
+.info    { background: $color-info-tint; color: $color-info; }
+.primary { background: $color-primary-tint; color: $color-primary-darker; }
+.neutral { background: $color-ink-50; color: $color-ink-700; }

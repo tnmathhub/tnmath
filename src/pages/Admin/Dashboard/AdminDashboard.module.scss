@@ -1,0 +1,72 @@
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-5;
+  margin-bottom: $space-6;
+
+  @include respond(lg) { grid-template-columns: repeat(2, 1fr); }
+  @include respond(sm) { grid-template-columns: 1fr; }
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-5;
+
+  @include respond(lg) { grid-template-columns: 1fr; }
+}
+
+.cardTitle { font-size: 1rem; margin-bottom: $space-5; }
+
+.planRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $space-4;
+
+  div { display: flex; align-items: center; gap: $space-3; }
+}
+
+.planName { font-weight: 700; font-size: 0.95rem; }
+
+.planFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+
+  li {
+    font-size: 0.8125rem;
+    color: $color-ink-500;
+    padding-left: $space-4;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: $color-primary;
+    }
+  }
+}
+
+.linkGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-3;
+}
+
+.linkCard {
+  padding: $space-4;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $color-ink-700;
+  transition: border-color $dur-base $ease-smooth, background-color $dur-base $ease-smooth, color $dur-base $ease-smooth;
+
+  &:hover { border-color: $color-primary-light; background: $color-primary-tint; color: $color-primary-darker; }
+}

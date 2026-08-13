@@ -1,0 +1,41 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-5;
+
+  @include respond(lg) { grid-template-columns: repeat(2, 1fr); }
+  @include respond(sm) { grid-template-columns: 1fr; }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  height: 100%;
+
+  h3 { font-size: 1rem; }
+  p { color: $color-ink-500; font-size: 0.8125rem; flex: 1; }
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.number {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: $color-primary;
+}
+
+.meta {
+  display: flex;
+  gap: $space-4;
+  font-size: 0.75rem;
+  color: $color-ink-500;
+
+  span { display: flex; align-items: center; gap: $space-1; }
+}

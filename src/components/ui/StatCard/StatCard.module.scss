@@ -1,0 +1,43 @@
+.stat {
+  display: flex;
+  align-items: flex-start;
+  gap: $space-4;
+}
+
+.iconWrap {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: $radius-md;
+  background: $color-primary-tint;
+  color: $color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.label {
+  font-size: 0.8125rem;
+  color: $color-ink-500;
+}
+
+.value {
+  font-family: $font-display;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $color-ink-900;
+}
+
+.delta {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: $color-success;
+}
+
+.down { color: $color-error; }

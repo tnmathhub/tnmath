@@ -1,0 +1,53 @@
+.tabsWrap { margin-bottom: $space-5; }
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.examCard {
+  display: flex;
+  align-items: center;
+  gap: $space-5;
+  flex-wrap: wrap;
+}
+
+.iconWrap {
+  width: 48px;
+  height: 48px;
+  border-radius: $radius-md;
+  background: $color-primary-tint;
+  color: $color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.info { flex: 1; min-width: 220px; }
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  flex-wrap: wrap;
+
+  h3 { font-size: 0.95rem; }
+}
+
+.meta {
+  display: flex;
+  gap: $space-4;
+  margin-top: $space-2;
+  font-size: 0.8125rem;
+  color: $color-ink-500;
+
+  span { display: flex; align-items: center; gap: $space-1; }
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+}

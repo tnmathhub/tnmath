@@ -1,0 +1,104 @@
+.backdrop {
+  display: none;
+
+  @include respond(lg) {
+    display: block;
+    position: fixed;
+    inset: 0;
+    top: $header-height;
+    background: rgba(35, 19, 28, 0.4);
+    z-index: 45;
+  }
+}
+
+.sidebar {
+  width: $sidebar-width;
+  flex-shrink: 0;
+  background: $color-white;
+  border-right: 1px solid $color-border;
+  height: calc(100vh - #{$header-height});
+  position: sticky;
+  top: $header-height;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: $space-5 $space-4;
+  transition: transform $dur-base $ease-smooth;
+
+  @include respond(lg) {
+    position: fixed;
+    left: 0;
+    z-index: 50;
+    transform: translateX(-100%);
+    box-shadow: $shadow-lg;
+
+    &.open {
+      transform: translateX(0);
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: $space-1;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: 0.7rem $space-4;
+  border-radius: $radius-md;
+  color: $color-ink-700;
+  font-size: 0.875rem;
+  font-weight: 500;
+  position: relative;
+  transition: background-color $dur-base $ease-smooth, color $dur-base $ease-smooth;
+
+  &:hover {
+    background: $color-primary-tint;
+    color: $color-primary-darker;
+  }
+}
+
+.active {
+  background: $color-primary-tint;
+  color: $color-primary-darker;
+  font-weight: 700;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -#{$space-4};
+    top: 8px;
+    bottom: 8px;
+    width: 4px;
+    border-radius: $radius-pill;
+    background: linear-gradient(180deg, $color-primary-light, $color-primary);
+  }
+}
+
+.footer {
+  border-top: 1px solid $color-border;
+  padding-top: $space-4;
+}
+
+.roleBadge {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  background: $color-ink-50;
+  color: $color-ink-700;
+  border-radius: $radius-pill;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tagline {
+  margin-top: $space-3;
+  font-size: 0.75rem;
+  color: $color-ink-500;
+  line-height: 1.4;
+}

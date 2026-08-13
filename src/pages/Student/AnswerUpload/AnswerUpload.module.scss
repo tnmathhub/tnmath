@@ -1,0 +1,110 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: $space-5;
+  align-items: start;
+
+  @include respond(lg) { grid-template-columns: 1fr; }
+}
+
+.cardTitle {
+  font-size: 1rem;
+  margin-bottom: $space-5;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: $space-5;
+}
+
+.dropLabel {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $color-ink-700;
+  margin-bottom: $space-2;
+}
+
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-2;
+  text-align: center;
+  padding: $space-7 $space-5;
+  border: 2px dashed $color-border-strong;
+  border-radius: $radius-lg;
+  color: $color-ink-500;
+  background: $color-surface-alt;
+  transition: border-color $dur-base $ease-smooth, background-color $dur-base $ease-smooth;
+
+  p { font-size: 0.875rem; color: $color-ink-700; }
+}
+
+.dragging {
+  border-color: $color-primary;
+  background: $color-primary-tint;
+}
+
+.browse {
+  color: $color-primary;
+  font-weight: 600;
+  cursor: pointer;
+  &:hover { text-decoration: underline; }
+}
+
+.hint {
+  font-size: 0.75rem;
+  color: $color-ink-300;
+}
+
+.successBanner {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  padding: $space-3 $space-4;
+  background: $color-success-tint;
+  color: $color-success;
+  border-radius: $radius-md;
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.sheetList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.sheetRow {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-3;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+}
+
+.sheetIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: $radius-sm;
+  background: $color-primary-tint;
+  color: $color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sheetInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.sheetExam { font-size: 0.8125rem; font-weight: 600; @include truncate(1); }
+.sheetDate { font-size: 0.75rem; color: $color-ink-500; }
+.empty { color: $color-ink-500; font-size: 0.875rem; }

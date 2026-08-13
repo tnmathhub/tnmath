@@ -1,0 +1,112 @@
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-5;
+  margin-bottom: $space-6;
+
+  @include respond(lg) { grid-template-columns: repeat(2, 1fr); }
+  @include respond(sm) { grid-template-columns: 1fr; }
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: $space-5;
+
+  @include respond(lg) { grid-template-columns: 1fr; }
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $space-5;
+
+  h3 { font-size: 1rem; }
+}
+
+.viewAll {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $color-primary;
+  &:hover { text-decoration: underline; }
+}
+
+.chapterList, .examList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.chapterRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $space-4;
+  padding: $space-3 $space-4;
+  border-radius: $radius-md;
+  transition: background-color $dur-base $ease-smooth;
+  color: inherit;
+
+  &:hover { background: $color-primary-tint; }
+}
+
+.chapterInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.chapterNumber {
+  font-size: 0.6875rem;
+  color: $color-primary;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.chapterTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  @include truncate(1);
+}
+
+.chapterProgress {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  width: 140px;
+  flex-shrink: 0;
+
+  span { font-size: 0.75rem; color: $color-ink-500; width: 32px; }
+}
+
+.examRow {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  padding: $space-3 $space-4;
+  border-radius: $radius-md;
+  border: 1px solid $color-border;
+}
+
+.examIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: $radius-md;
+  background: $color-primary-tint;
+  color: $color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.examInfo {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.examTitle { font-size: 0.8125rem; font-weight: 600; @include truncate(1); }
+.examMeta { font-size: 0.75rem; color: $color-ink-500; }
