@@ -4,12 +4,21 @@
 // backend is ready — no other file should hardcode a URL.
 // ============================================================
 
+import { API_BASE_URL } from './apiBaseUrl';
+
 export const BASE_URL: string =
   (import.meta.env.VITE_API_BASE_URL as string) || 'https://api.tnmathsplatform.com/v1';
 
 const withBase = (path: string) => `${BASE_URL}${path}`;
+const withApiBase = (path: string) => `${API_BASE_URL}${path}`;
 
 export const API = {
+  // Live endpoints on the deployed Django backend.
+  hub: {
+    registerStudent: withApiBase('/api/hub/register/student/'),
+    registerTeacher: withApiBase('/api/hub/register/teacher/'),
+  },
+
   auth: {
     login: withBase('/auth/login'),
     register: withBase('/auth/register'),

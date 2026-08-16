@@ -85,6 +85,21 @@
   margin-top: $space-5;
 }
 
+.formError {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  background: $color-error-tint;
+  color: $color-error;
+  border: 1px solid rgba(209, 67, 90, 0.25);
+  padding: $space-3 $space-4;
+  border-radius: $radius-md;
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  svg { flex-shrink: 0; }
+}
+
 .fieldsRow {
   display: grid;
   grid-template-columns: 1fr 1fr;

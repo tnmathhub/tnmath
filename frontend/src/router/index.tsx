@@ -3,6 +3,9 @@ import { Layout } from '@/components/layout/Layout/Layout';
 import { ProtectedRoute } from '@/components/routing/ProtectedRoute';
 
 import { Landing } from '@/pages/Landing/Landing';
+import { About } from '@/pages/Marketing/About/About';
+import { Career } from '@/pages/Marketing/Career/Career';
+import { AISolver } from '@/pages/Marketing/AISolver/AISolver';
 import { Login } from '@/pages/Auth/Login';
 import { Register } from '@/pages/Auth/Register';
 import { ForgotPassword } from '@/pages/Auth/ForgotPassword';
@@ -34,6 +37,9 @@ import { AccessControl } from '@/pages/Admin/AccessControl/AccessControl';
 
 export const router = createBrowserRouter([
   { path: '/', element: <Landing /> },
+  { path: '/about', element: <About /> },
+  { path: '/career', element: <Career /> },
+  { path: '/ai-solver', element: <AISolver /> },
   { path: '/login', element: <Login /> },
   { path: '/register', element: <Register /> },
   { path: '/forgot-password', element: <ForgotPassword /> },

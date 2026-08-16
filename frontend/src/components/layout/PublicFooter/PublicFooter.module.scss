@@ -1,0 +1,27 @@
+.footer {
+  border-top: 1px solid $color-border;
+  padding: $space-5 0;
+}
+
+.footerInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8125rem;
+  color: $color-ink-500;
+  flex-wrap: wrap;
+  gap: $space-3;
+}
+
+.footerLinks {
+  display: flex;
+  gap: $space-5;
+  flex-wrap: wrap;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a:hover { color: $color-primary; }
+}

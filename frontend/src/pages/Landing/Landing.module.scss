@@ -2,60 +2,6 @@
   background: $color-bg;
 }
 
-// ---------- Nav ----------
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 30;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid $color-border;
-}
-
-.navInner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 68px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: $space-2;
-  font-family: $font-display;
-  font-weight: 700;
-  font-size: 1.05rem;
-}
-
-.brandMark {
-  width: 30px;
-  height: 30px;
-  border-radius: $radius-sm;
-  background: $color-primary;
-  color: $color-white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.navLinks {
-  display: flex;
-  gap: $space-6;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: $color-ink-700;
-
-  a:hover { color: $color-primary; }
-
-  @include respond(md) { display: none; }
-}
-
-.navActions {
-  display: flex;
-  gap: $space-3;
-}
-
 // ---------- Hero ----------
 .hero {
   padding: $space-9 0 $space-8;
@@ -121,6 +67,28 @@
   }
 }
 
+.trustRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-3;
+  margin-top: $space-2;
+}
+
+.trustChip {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  background: $color-white;
+  border: 1px solid $color-border;
+  color: $color-ink-700;
+  padding: $space-2 $space-3;
+  border-radius: $radius-pill;
+  font-size: 0.8125rem;
+  font-weight: 600;
+
+  svg { color: $color-primary; }
+}
+
 .heroVisual { display: flex; justify-content: center; }
 
 .previewCard {
@@ -162,6 +130,18 @@
   color: $color-ink-700;
 
   span { flex: 1; }
+}
+
+// ---------- Stats ----------
+.statsGrid {
+  margin-top: -$space-6;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-4;
+
+  @include respond(md) { grid-template-columns: repeat(2, 1fr); }
 }
 
 // ---------- Sections ----------
@@ -302,6 +282,115 @@
   }
 }
 
+// ---------- Teachers ----------
+.teachersBox {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: $space-7;
+  align-items: center;
+  background: $color-surface-alt;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: $space-8;
+
+  @include respond(lg) { grid-template-columns: 1fr; }
+}
+
+.teachersCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $space-4;
+
+  h2 { font-size: 1.6rem; letter-spacing: -0.01em; }
+  p { color: $color-ink-700; max-width: 520px; }
+}
+
+.teachersList {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    font-size: 0.9rem;
+    color: $color-ink-700;
+
+    svg { color: $color-success; flex-shrink: 0; }
+  }
+}
+
+.teachersVisual {
+  display: flex;
+  justify-content: center;
+
+  @include respond(lg) { display: none; }
+}
+
+.teachersIcon {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $color-primary-light, $color-primary);
+  color: $color-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ---------- Testimonials ----------
+.testimonialGrid {
+  margin-top: $space-7;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-5;
+
+  @include respond(lg) { grid-template-columns: 1fr; }
+}
+
+.testimonialCard {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+  color: #f5b800;
+}
+
+.quote {
+  color: $color-ink-700;
+  font-size: 0.9375rem;
+  flex: 1;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  margin-top: $space-2;
+
+  strong { display: block; font-size: 0.875rem; }
+  span { font-size: 0.75rem; color: $color-ink-500; }
+}
+
+.authorAvatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: $color-primary-tint;
+  color: $color-primary-darker;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
 // CTA
 .cta { padding-bottom: $space-9; }
 
@@ -320,24 +409,3 @@
   p { color: rgba(255, 255, 255, 0.85); margin-top: $space-2; }
 }
 
-// Footer
-.footer {
-  border-top: 1px solid $color-border;
-  padding: $space-5 0;
-}
-
-.footerInner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.8125rem;
-  color: $color-ink-500;
-  flex-wrap: wrap;
-  gap: $space-3;
-}
-
-.footerLinks {
-  display: flex;
-  gap: $space-5;
-  a:hover { color: $color-primary; }
-}

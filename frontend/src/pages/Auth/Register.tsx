@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import type { FormEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Button, Input, Icon } from '@/components/ui';
+import { Button, Input, Select, Icon } from '@/components/ui';
 import { useAuth } from '@/context/AuthContext';
 import type { UserRole } from '@/types';
 import { classNames } from '@/utils/helpers';
+import { API } from '@/utils/apiUrls';
 import { AuthLayout } from './AuthLayout';
 import styles from './Auth.module.scss';
 
@@ -16,34 +17,121 @@ const ROLE_CARDS: { role: UserRole; title: string; desc: string; icon: 'book' | 
   { role: 'teacher', title: 'Teacher', desc: 'Content management, correction and class tracking.', icon: 'correction' },
 ];
 
+const MEDIUM_OPTIONS = [
+  { value: 'ENGLISH', label: 'English' },
+  { value: 'TAMIL', label: 'Tamil' },
+];
+
+// Django REST validation errors usually come back as either
+// { "detail": "..." } or { "field_name": ["message", ...], ... }.
+// Flatten either shape into one readable string.
+async function parseApiError(res: Response): Promise<string> {
+  try {
+    const data = await res.json();
+    if (typeof data?.detail === 'string') return data.detail;
+    const messages = Object.entries(data)
+      .map(([field, value]) => {
+        const text = Array.isArray(value) ? value.join(' ') : String(value);
+        return field === 'non_field_errors' ? text : `${field}: ${text}`;
+      })
+      .filter(Boolean);
+    if (messages.length) return messages.join(' ');
+  } catch {
+    // fall through
+  }
+  return `Registration failed (${res.status}). Please try again.`;
+}
+
 export function Register() {
   const { login } = useAuth();
   const navigate = useNavigate();
   const [role, setRole] = useState<UserRole>('student');
-  const [name, setName] = useState('');
+
+  // Shared account fields (Django User model)
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [phone, setPhone] = useState('');
+
+  // Student profile fields
+  const [studentFullname, setStudentFullname] = useState('');
   const [school, setSchool] = useState('');
   const [district, setDistrict] = useState('');
-  const [qualification, setQualification] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
+  const [medium, setMedium] = useState<'ENGLISH' | 'TAMIL'>('ENGLISH');
+  const [parentMobile, setParentMobile] = useState('');
 
-  const handleSubmit = (e: FormEvent) => {
+  // Teacher profile fields
+  const [teacherFullname, setTeacherFullname] = useState('');
+  const [qualification, setQualification] = useState('');
+  const [workingSchool, setWorkingSchool] = useState('');
+  const [mobile, setMobile] = useState('');
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [formError, setFormError] = useState('');
+
+  const fullname = role === 'student' ? studentFullname : teacherFullname;
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setFormError('');
     setIsLoading(true);
-    setTimeout(() => {
-      login(name, email, role, {
-        username,
-        schoolName: school || undefined,
-        district: district || undefined,
-        qualification: role === 'teacher' ? qualification || undefined : undefined,
-        phone: phone || undefined,
+
+    const endpoint = role === 'student' ? API.hub.registerStudent : API.hub.registerTeacher;
+    const payload =
+      role === 'student'
+        ? {
+            username,
+            email,
+            password,
+            fullname: studentFullname,
+            school,
+            district,
+            medium,
+            parent_mobile: parentMobile,
+          }
+        : {
+            username,
+            email,
+            password,
+            fullname: teacherFullname,
+            qualification,
+            working_school: workingSchool,
+            mobile,
+          };
+
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
       });
-      setIsLoading(false);
+
+      if (!res.ok) {
+        setFormError(await parseApiError(res));
+        setIsLoading(false);
+        return;
+      }
+
+      if (role === 'student') {
+        login(fullname, email, role, {
+          username,
+          schoolName: school,
+          district,
+          medium,
+          parentMobile,
+        });
+      } else {
+        login(fullname, email, role, {
+          username,
+          qualification,
+          workingSchool,
+          phone: mobile,
+        });
+      }
       navigate(`/${role}/dashboard`);
-    }, 500);
+    } catch {
+      setFormError('Could not reach the server. Please check your connection and try again.');
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -64,13 +152,8 @@ export function Register() {
       </div>
 
       <form className={styles.form} onSubmit={handleSubmit}>
-        <Input
-          label="Full name"
-          placeholder="e.g. Priya Ramesh"
-          required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+        {formError && <div className={styles.formError}><Icon name="close" size={14} />{formError}</div>}
+        {/* Account fields — shared by Django's User model */}
         <Input
           label="Username"
           placeholder="e.g. priya_ramesh"
@@ -94,35 +177,82 @@ export function Register() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <div className={styles.fieldsRow}>
-          <Input
-            label="Phone number"
-            type="tel"
-            placeholder="98765 43210"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          />
-          <Input
-            label="District"
-            placeholder="e.g. Chennai"
-            value={district}
-            onChange={(e) => setDistrict(e.target.value)}
-          />
-        </div>
-        <Input
-          label="School"
-          placeholder="e.g. Govt Hr Sec School, Chennai"
-          value={school}
-          onChange={(e) => setSchool(e.target.value)}
-        />
-        {role === 'teacher' && (
-          <Input
-            label="Qualification"
-            placeholder="e.g. M.Sc., B.Ed."
-            value={qualification}
-            onChange={(e) => setQualification(e.target.value)}
-          />
+
+        {role === 'student' ? (
+          <>
+            <Input
+              label="Full name"
+              placeholder="e.g. Priya Ramesh"
+              required
+              value={studentFullname}
+              onChange={(e) => setStudentFullname(e.target.value)}
+            />
+            <Input
+              label="School"
+              placeholder="e.g. Govt Hr Sec School, Chennai"
+              required
+              value={school}
+              onChange={(e) => setSchool(e.target.value)}
+            />
+            <div className={styles.fieldsRow}>
+              <Input
+                label="District"
+                placeholder="e.g. Chennai"
+                required
+                value={district}
+                onChange={(e) => setDistrict(e.target.value)}
+              />
+              <Select
+                label="Medium"
+                required
+                value={medium}
+                onChange={(e) => setMedium(e.target.value as 'ENGLISH' | 'TAMIL')}
+                options={MEDIUM_OPTIONS}
+              />
+            </div>
+            <Input
+              label="Parent's mobile number"
+              type="tel"
+              placeholder="98765 43210"
+              required
+              value={parentMobile}
+              onChange={(e) => setParentMobile(e.target.value)}
+            />
+          </>
+        ) : (
+          <>
+            <Input
+              label="Full name"
+              placeholder="e.g. Arun Kumar"
+              required
+              value={teacherFullname}
+              onChange={(e) => setTeacherFullname(e.target.value)}
+            />
+            <Input
+              label="Qualification"
+              placeholder="e.g. M.Sc., B.Ed."
+              required
+              value={qualification}
+              onChange={(e) => setQualification(e.target.value)}
+            />
+            <Input
+              label="Working school"
+              placeholder="e.g. Govt Hr Sec School, Chennai"
+              required
+              value={workingSchool}
+              onChange={(e) => setWorkingSchool(e.target.value)}
+            />
+            <Input
+              label="Mobile number"
+              type="tel"
+              placeholder="98765 43210"
+              required
+              value={mobile}
+              onChange={(e) => setMobile(e.target.value)}
+            />
+          </>
         )}
+
         <Button type="submit" fullWidth size="lg" isLoading={isLoading}>
           Create {role} account
         </Button>

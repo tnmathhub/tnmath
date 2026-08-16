@@ -1,0 +1,65 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid $color-border;
+}
+
+.navInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: $space-2;
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: $color-ink-900;
+  text-decoration: none;
+}
+
+.brandMark {
+  width: 30px;
+  height: 30px;
+  border-radius: $radius-sm;
+  background: $color-primary;
+  color: $color-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.navLinks {
+  display: flex;
+  gap: $space-6;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $color-ink-700;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    white-space: nowrap;
+  }
+
+  a:hover,
+  a.active {
+    color: $color-primary;
+  }
+
+  @include respond(lg) { display: none; }
+}
+
+.navActions {
+  display: flex;
+  gap: $space-3;
+  flex-shrink: 0;
+}

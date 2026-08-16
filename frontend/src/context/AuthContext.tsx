@@ -12,7 +12,7 @@ interface AuthContextValue {
     name: string,
     email: string,
     role: UserRole,
-    extra?: Partial<Pick<AuthUser, 'schoolName' | 'username' | 'district' | 'qualification' | 'phone'>>
+    extra?: Partial<Pick<AuthUser, 'schoolName' | 'username' | 'district' | 'medium' | 'qualification' | 'workingSchool' | 'phone' | 'parentMobile'>>
   ) => void;
   logout: () => void;
   refreshAccessToken: () => Promise<string | null>;
@@ -70,7 +70,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     name: string,
     email: string,
     role: UserRole,
-    extra?: Partial<Pick<AuthUser, 'schoolName' | 'username' | 'district' | 'qualification' | 'phone'>>
+    extra?: Partial<Pick<AuthUser, 'schoolName' | 'username' | 'district' | 'medium' | 'qualification' | 'workingSchool' | 'phone' | 'parentMobile'>>
   ) => {
     const nextUser: AuthUser = {
       id: crypto.randomUUID(),

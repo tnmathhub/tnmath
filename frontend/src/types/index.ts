@@ -10,8 +10,11 @@ export interface AuthUser {
   role: UserRole;
   schoolName?: string;
   district?: string;
+  medium?: 'ENGLISH' | 'TAMIL';
   qualification?: string;
+  workingSchool?: string;
   phone?: string;
+  parentMobile?: string;
   avatarInitial?: string;
 }
 
@@ -86,7 +89,10 @@ export type IconName =
   | 'dashboard' | 'book' | 'exam' | 'upload' | 'result' | 'card'
   | 'content' | 'correction' | 'class' | 'user' | 'report' | 'shield'
   | 'settings' | 'logout' | 'menu' | 'bell' | 'search' | 'chevron'
-  | 'sigma' | 'check' | 'close' | 'plus' | 'download' | 'clock';
+  | 'sigma' | 'check' | 'close' | 'plus' | 'download' | 'clock'
+  | 'robot' | 'camera' | 'keyboard' | 'chart' | 'trophy' | 'briefcase'
+  | 'target' | 'users' | 'heart' | 'star' | 'phone' | 'mail'
+  | 'rocket' | 'medal' | 'fire' | 'gift' | 'compass' | 'bulb';
 
 export interface AuthTokens {
   accessToken: string;
